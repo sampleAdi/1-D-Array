@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SubArray {
+public class PrintSubArray {
     static int ts = 0;
 
     public static void subarr(int arr[]) {
