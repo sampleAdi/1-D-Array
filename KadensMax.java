@@ -1,29 +1,24 @@
-public class KadensMaximum {
-    public static void KadensMax(int arr[]) {
-        int cs = 0, k, sum1 = 0;
-        int ms = Integer.MIN_VALUE;
-        int currsum1 = Integer.MIN_VALUE;
-        for (k = 0; k < arr.length; k++) {
-            cs = cs + arr[k];
-            if (cs < 0) {
-                cs = 0;
-            }
-            ms = Math.max(cs, ms);
-            if (ms == 0) {
-                for (k = 0; k < arr.length; k++) {
-                    sum1 = sum1 + arr[k];
-                    if (sum1 > currsum1) {
-                        currsum1 = sum1;
-                    }
-                }
-                System.out.println("Our Maximum subarray sum: " + currsum1);
+import java.util.*;
+
+class KadensMax {
+
+    public static void MaxSum(int arr[]) {
+
+        int CS = 0;
+        int MS = Integer.MIN_VALUE;
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            CS += arr[i];
+            MS = Math.max(CS, MS); // this line always write first for negative and positive numbers array.
+            if (CS < 0) {
+                CS = 0;
             }
         }
-        System.out.println("Our Maximum sum of subarray: " + ms);
+        System.out.println(MS);
     }
 
     public static void main(String[] args) {
-        int Kadens[] = { 2, 4, 6, 8, 10 };
-        KadensMax(Kadens);
+        int arr[] = { -1, -2, -3, -4 };
+        MaxSum(arr);
     }
 }
